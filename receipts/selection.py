@@ -1,6 +1,7 @@
 from collections.abc import Iterable
 from dataclasses import dataclass
 
+from evidence.calibration import CalibratedFrozenParcel
 from receipts.retrieve import AcceptedParcel, load_accepted_sequence
 from receipts.store import ReceiptStore
 from rounds.grid import BeatRange
@@ -33,5 +34,22 @@ def select_receipts(
     accepted = load_accepted_sequence(receipts, receipt_ids)
     for item in accepted:
         require_matching_round(specification, item.parcel.round_spec)
+    require_exact_coverage(specification.beats, (item.parcel.coverage for item in accepted))
+    return ReceiptSelection(specification, accepted)
+
+
+def select_calibrated_receipts(
+    receipts: ReceiptStore, specification: RoundSpec, receipt_ids: Iterable[str],
+) -> ReceiptSelection:
+    accepted = load_accepted_sequence(receipts, receipt_ids)
+    calibration_ids = set()
+    for item in accepted:
+        parcel = item.parcel
+        if not isinstance(parcel, CalibratedFrozenParcel):
+            raise ValueError('calibrated reports require version 2 receipts')
+        require_matching_round(specification, parcel.round_spec)
+        calibration_ids.add(parcel.calibration_id)
+    if len(calibration_ids) != 1:
+        raise ValueError('all calibrated receipts must share one calibration ID')
     require_exact_coverage(specification.beats, (item.parcel.coverage for item in accepted))
     return ReceiptSelection(specification, accepted)
