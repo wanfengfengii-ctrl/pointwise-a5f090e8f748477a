@@ -1,0 +1,11 @@
+[
+  {"id":"open-box","first":1,"cut":3,"width":2,"values":[0,0,0,0],"coefficients":[[0,0],[0,0],[1,1],[1,1]],"day":[],"night":[],"status":"measured","pairs":1,"range":["0","2"]},
+  {"id":"cancellation","first":1,"cut":3,"width":2,"values":[0,0,0,0],"coefficients":[[0,0],[0,0],[1,1],[1,1]],"day":[[1,1,0],[-1,-1,0]],"night":[],"status":"measured","pairs":1,"range":["0","0"]},
+  {"id":"shifted-line","first":1,"cut":3,"width":2,"values":[0,0,0,0],"coefficients":[[0,0],[0,0],[1,1],[1,1]],"day":[[1,-1,1]],"night":[[-1,1,-1]],"status":"measured","pairs":1,"range":["0","1/2"]},
+  {"id":"shared-pair-minimum","first":1,"cut":3,"width":2,"values":[0,0,0,0,1,1],"coefficients":[[0,0],[0,0],[1,0],[1,0],[0,0],[0,0]],"day":[],"night":[],"status":"measured","pairs":2,"range":["1/8","5/4"]},
+  {"id":"interior","first":1,"cut":3,"width":2,"values":[0,0,0,0,0,0],"coefficients":[[0,0],[0,0],[1,0],[1,0],[1,1],[1,1]],"day":[],"night":[],"status":"measured","pairs":2,"range":["0","1/2"]},
+  {"id":"singleton","first":1,"cut":3,"width":2,"values":[0,0,0,0],"coefficients":[[0,0],[0,0],[1,1],[1,1]],"day":[[1,0,"1/2"],[-1,0,"-1/2"]],"night":[[0,1,"1/4"],[0,-1,"-1/4"]],"status":"measured","pairs":1,"range":["9/32","9/32"]},
+  {"id":"no-domain","first":1,"cut":3,"width":2,"values":[0,0,0,0],"coefficients":[[0,0],[0,0],[1,1],[1,1]],"day":[[1,0,0],[-1,0,0]],"night":[[1,0,1],[-1,0,-1]],"status":"infeasible","pairs":1,"range":null},
+  {"id":"broken-adjacency","first":1,"cut":3,"width":2,"values":[0,0,null,0,0,0],"coefficients":[[0,0],[0,0],null,[1,0],[0,0],[0,0]],"day":[],"night":[],"status":"insufficient","pairs":0,"range":null},
+  {"id":"width-four","first":10,"cut":6,"width":4,"values":[0,0,0,0,0,0,0,0],"coefficients":[[0,0],[0,0],[0,0],[0,0],[1,-1],[1,-1],[1,-1],[1,-1]],"day":[],"night":[],"status":"measured","pairs":1,"range":["0","2"]}
+]
